@@ -30,3 +30,22 @@ babel-node ./src/index.js
 Note, this example is extracted from a large code base.
 
 It is easy to spot this circular dependency in this example. In a large code base, where `./src/types/MutationType.js` is imported by a sub-dependency, this circular reference is a lot harder to detect/ fix.
+
+The reason the example using `setTimeout` works, is because of how the code gets transpiled to the ES5:
+
+```js
+var _ = require('./');
+
+var _BlogType = require('./BlogType');
+
+var _BlogType2 = _interopRequireDefault(_BlogType);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+setTimeout(() => {
+    console.log('>>> [./src/types/MutationType.js]', 'named', _.BlogType);
+    console.log('>>> [./src/types/MutationType.js]', 'default', _BlogType2.default);
+}, 100);
+```
+
+In the ES6 code, `BlogType` is a reference to a variable. In the transpiled code, it becomes a reference to an object property `_.BlogType`.
