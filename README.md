@@ -27,9 +27,7 @@ babel-node ./src/index.js
 >>> [./src/types/MutationType.js] default setTimeout BlogType
 ```
 
-Note, this example is extracted from a large code base.
-
-It is easy to spot this circular dependency in this example. In a large code base, where `./src/types/MutationType.js` is imported by a sub-dependency, this circular reference is a lot harder to detect/ fix.
+Note, this example is extracted from a large code base. It is easy to spot this circular dependency in this example. In a large code base, where `./src/types/MutationType.js` is imported by a sub-dependency, this circular reference is a lot harder to debug.
 
 The reason the example using `setTimeout` works, is because of how the code gets transpiled to the ES5:
 
