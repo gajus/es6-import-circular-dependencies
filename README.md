@@ -11,6 +11,8 @@ babel-node ./src/index.js
 >>> [./src/types/MutationType.js] default BlogType
 >>> [./index.js] named BlogType
 >>> [./index.js] default BlogType
+>>> [./src/types/MutationType.js] named setTimeout BlogType
+>>> [./src/types/MutationType.js] default setTimeout BlogType
 ```
 
 Expected output:
@@ -21,6 +23,8 @@ babel-node ./src/index.js
 >>> [./src/types/MutationType.js] default BlogType
 >>> [./index.js] named BlogType
 >>> [./index.js] default BlogType
+>>> [./src/types/MutationType.js] named setTimeout BlogType
+>>> [./src/types/MutationType.js] default setTimeout BlogType
 ```
 
 Note, this example is extracted from a large code base.
