@@ -22,3 +22,7 @@ babel-node ./src/index.js
 >>> [./index.js] named BlogType
 >>> [./index.js] default BlogType
 ```
+
+Note, this example is extracted from a large code base.
+
+It is easy to spot this circular dependency in this example. In a large code base, where `./src/types/MutationType.js` is imported by a sub-dependency, this circular reference is a lot harder to detect/ fix.
